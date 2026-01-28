@@ -1,0 +1,52 @@
+🎯 PropertyBoost Landing Page - Αρχεία για Download
+
+📁 Αρχεία που χρειάζεστε:
+├── index.html (Κύρια σελίδα)
+├── style.css (Όλα τα styles)
+├── script.js (JavaScript functionality)
+└── README.md (Τεκμηρίωση)
+
+🚀 Πώς να κάνετε deploy:
+
+1️⃣ ΤΟΠΙΚΗ ΕΚΤΕΛΕΣΗ:
+   - Κατεβάστε όλα τα αρχεία στον ίδιο φάκελο
+   - Ανοίξτε το index.html σε browser
+   - Όλα θα λειτουργήσουν τοπικά!
+
+2️⃣ WEB HOSTING:
+   - Upload όλα τα files στο hosting σας
+   - Βεβαιωθείτε ότι το index.html είναι στο root directory
+   - Η σελίδα θα είναι live!
+
+3️⃣ GITHUB PAGES (ΔΩΡΕΑΝ):
+   - Δημιουργήστε repository στο GitHub
+   - Upload τα files
+   - Ενεργοποιήστε GitHub Pages στα settings
+   - Θα πάρετε δωρεάν URL!
+
+✅ Η landing page περιλαμβάνει:
+- Responsive design για όλες τις συσκευές
+- Working contact form με Gmail integration
+- AI automation section
+- Package comparison table
+- FAQ section
+- Modern styling με animations
+
+📧 Email Integration:
+- Ανοίγει Gmail compose για Gmail χρήστες
+- Fallback σε default email client
+- Backup clipboard functionality
+
+🎨 Χαρακτηριστικά:
+- Premium design με gradients
+- Mobile navigation
+- Smooth scrolling
+- Interactive elements
+- SEO optimized
+
+💡 Για περαιτέρω customization:
+- Αλλάξτε τα στοιχεία επικοινωνίας στο index.html
+- Προσαρμόστε χρώματα στο style.css (CSS variables)
+- Ενημερώστε τιμές πακέτων όπου χρειάζεται
+
+📞 Support: info@earnwise.gr
