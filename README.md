@@ -37,7 +37,7 @@
 
 #### 6. **AI Automation Section**
 - "Powered by AI" badge
-- 3-step workflow: Airbnb Email → Google Sheet → Automated Emails
+- 3-step workflow: Email → Google Sheet → Automated Emails
 - Λεπτομερή οφέλη και εξήγηση λειτουργίας
 - Βελτιωμένο contrast για καλύτερη αναγνωσιμότητα
 
