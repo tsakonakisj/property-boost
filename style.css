@@ -191,7 +191,7 @@ p {
     margin: 0 auto 2rem;
     padding: 32px;
     background: rgba(0, 0, 0, 0.04);
-    backdrop-filter: blur(12px);
+    backdrop-filter: blur(6px);
     border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 20px;
 }
