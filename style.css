@@ -189,10 +189,11 @@ p {
 .hero-text-box {
     max-width: 740px;
     margin: 0 auto 2rem;
-    padding: 28px;
-    background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(8px);
-    border-radius: 16px;
+    padding: 32px;
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
 }
 
 .hero-title {
@@ -221,25 +222,22 @@ p {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-.hero-buttons {
+.hero-cta-wrapper {
+    margin-top: 2rem;
+}
+
+.hero-cta-row {
     display: flex;
-    gap: 1rem;
+    gap: 12px;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    margin-bottom: 1.5rem;
 }
 
-.hero-link {
-    display: inline-block;
-    color: rgba(255, 255, 255, 0.9);
-    text-decoration: underline;
-    font-size: 0.95rem;
-    transition: color 0.3s ease;
-}
-
-.hero-link:hover {
-    color: var(--white);
+.hero-cta-row-secondary {
+    margin-top: 14px;
+    display: flex;
+    justify-content: center;
 }
 
 /* Problems vs Solutions */
@@ -927,9 +925,25 @@ p {
         display: block;
     }
 
-    .hero-buttons {
+    .hero-cta-row {
         flex-direction: column;
-        align-items: center;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    .hero-cta-row .btn {
+        width: 100%;
+    }
+
+    .hero-cta-row-secondary {
+        width: 100%;
+        max-width: 300px;
+        margin: 14px auto 0;
+    }
+
+    .hero-cta-row-secondary .btn {
+        width: 100%;
     }
 
     .solution-item {
