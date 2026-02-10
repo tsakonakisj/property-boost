@@ -434,6 +434,37 @@ p {
     opacity: 0.5;
 }
 
+.single-package-wrapper {
+    display: flex;
+    justify-content: center;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.single-package-card {
+    background: var(--white);
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+.package-note {
+    padding: 0 2rem 1rem;
+    text-align: center;
+}
+
+.package-note p {
+    color: var(--medium-gray);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.single-package-card .btn {
+    margin: 0 2rem 2rem;
+    width: calc(100% - 4rem);
+}
+
 /* Full Care Section */
 .full-care {
     padding: 5rem 0;
