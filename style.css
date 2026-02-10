@@ -335,7 +335,7 @@ p {
 
 /* Feature Detail Sections */
 .feature-detail {
-    padding: 5rem 0;
+    padding: 64px 0;
     background: var(--white);
 }
 
@@ -343,15 +343,17 @@ p {
     background: var(--light-gray);
 }
 
+.feature-detail-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
 .feature-detail-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    gap: 48px;
     align-items: center;
-}
-
-.feature-detail-reverse .feature-detail-content {
-    grid-template-columns: 1fr 1fr;
 }
 
 .feature-detail-reverse .feature-detail-image {
@@ -366,78 +368,104 @@ p {
     width: 100%;
 }
 
-.feature-detail-image img {
+.image-placeholder {
     width: 100%;
-    height: auto;
-    border-radius: 1rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    height: 280px;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    border: 2px dashed #cbd5e1;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.image-placeholder i {
+    font-size: 3rem;
+    color: #94a3b8;
+}
+
+.image-placeholder p {
+    font-size: 0.95rem;
+    color: #64748b;
+    text-align: center;
+    line-height: 1.5;
+    margin: 0;
 }
 
 .feature-detail-text h2 {
-    font-size: 2rem;
+    font-size: 1.85rem;
     font-weight: 700;
     color: var(--dark-blue);
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+    max-width: 600px;
 }
 
 .feature-subtitle {
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     font-weight: 600;
     color: var(--primary-blue);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem;
+    line-height: 1.4;
 }
 
 .feature-description {
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 
 .feature-description p {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     color: var(--medium-gray);
-    line-height: 1.8;
-    margin-bottom: 1rem;
+    line-height: 1.7;
+    margin-bottom: 0.75rem;
 }
 
 .feature-list {
     list-style: none;
     padding: 0;
-    margin: 0 0 2rem 0;
+    margin: 0 0 1.5rem 0;
 }
 
 .feature-list li {
     display: flex;
     align-items: flex-start;
-    gap: 1rem;
-    padding: 0.75rem 0;
-    font-size: 1.05rem;
+    gap: 12px;
+    padding: 0.5rem 0;
+    font-size: 1rem;
     color: var(--text-color);
     line-height: 1.6;
 }
 
+.feature-list li span {
+    flex: 1;
+}
+
 .feature-list i {
     color: var(--primary-green);
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     flex-shrink: 0;
-    margin-top: 0.1rem;
+    margin-top: 0.2rem;
 }
 
 .feature-highlight {
     display: flex;
-    gap: 1rem;
-    padding: 1.5rem;
+    gap: 12px;
+    padding: 1.25rem;
     background: linear-gradient(135deg, #fef3c7, #fde68a);
-    border-radius: 0.75rem;
+    border-radius: 12px;
     border-left: 4px solid #f59e0b;
 }
 
 .feature-highlight i {
     color: #f59e0b;
-    font-size: 1.5rem;
+    font-size: 1.35rem;
     flex-shrink: 0;
 }
 
 .feature-highlight p {
-    font-size: 1.05rem;
+    font-size: 0.98rem;
     font-weight: 600;
     color: #78350f;
     margin: 0;
@@ -1113,9 +1141,13 @@ p {
         grid-template-columns: 1fr;
     }
 
+    .feature-detail {
+        padding: 48px 0;
+    }
+
     .feature-detail-content {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 24px;
     }
 
     .feature-detail-reverse .feature-detail-image {
@@ -1126,28 +1158,50 @@ p {
         order: 2;
     }
 
+    .image-placeholder {
+        height: 220px;
+    }
+
+    .image-placeholder i {
+        font-size: 2.5rem;
+    }
+
+    .image-placeholder p {
+        font-size: 0.9rem;
+    }
+
     .feature-detail-text h2 {
-        font-size: 1.75rem;
+        font-size: 1.6rem;
     }
 
     .feature-subtitle {
-        font-size: 1.1rem;
+        font-size: 1.05rem;
     }
 
     .feature-description p {
-        font-size: 1rem;
+        font-size: 0.98rem;
     }
 
     .feature-list li {
-        font-size: 1rem;
+        font-size: 0.95rem;
+        gap: 10px;
+    }
+
+    .feature-list i {
+        font-size: 1.05rem;
     }
 
     .feature-highlight {
         padding: 1rem;
+        gap: 10px;
+    }
+
+    .feature-highlight i {
+        font-size: 1.25rem;
     }
 
     .feature-highlight p {
-        font-size: 0.95rem;
+        font-size: 0.9rem;
     }
 }
 
