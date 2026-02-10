@@ -350,6 +350,37 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+// GMB Modal Functions
+function openGmbModal() {
+    const modal = document.getElementById('gmbModal');
+    if (modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closeGmbModal(event) {
+    const modal = document.getElementById('gmbModal');
+    const modalImg = document.getElementById('gmbModalImg');
+
+    if (modal && (event.target === modal || event.target.classList.contains('modal-close'))) {
+        event.stopPropagation();
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+}
+
+// Close modal on ESC key
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        const modal = document.getElementById('gmbModal');
+        if (modal && modal.classList.contains('active')) {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+    }
+});
+
 // Console welcome message
 console.log('%cPropertyBoost Landing Page', 'color: #2563eb; font-size: 20px; font-weight: bold;');
 console.log('%cΑυτοματισμός για καταλύματα - Έτοιμο για παραγωγή!', 'color: #16a34a; font-size: 14px;');

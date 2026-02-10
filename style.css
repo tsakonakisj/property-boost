@@ -472,6 +472,99 @@ p {
     line-height: 1.6;
 }
 
+/* GMB Screenshot */
+.gmb-screenshot-wrapper {
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.gmb-screenshot-wrapper:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.gmb-screenshot {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 16px;
+}
+
+.screenshot-caption {
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--primary-blue);
+    font-weight: 600;
+    margin-top: 12px;
+    margin-bottom: 0;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.92);
+    animation: fadeIn 0.3s ease;
+}
+
+.modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.modal-content {
+    max-width: 90%;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 8px;
+    animation: zoomIn 0.3s ease;
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #ffffff;
+    font-size: 48px;
+    font-weight: 300;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    line-height: 1;
+    user-select: none;
+}
+
+.modal-close:hover {
+    color: #f0f0f0;
+}
+
 /* Packages Section */
 .packages {
     padding: 5rem 0;
@@ -1202,6 +1295,21 @@ p {
 
     .feature-highlight p {
         font-size: 0.9rem;
+    }
+
+    .modal-content {
+        max-width: 95%;
+        max-height: 80vh;
+    }
+
+    .modal-close {
+        top: 15px;
+        right: 20px;
+        font-size: 36px;
+    }
+
+    .screenshot-caption {
+        font-size: 0.85rem;
     }
 }
 

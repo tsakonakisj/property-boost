@@ -159,34 +159,38 @@
         <div class="feature-detail-wrapper">
             <div class="feature-detail-content">
                 <div class="feature-detail-image">
-                    <div class="image-placeholder">
-                        <i class="fas fa-image"></i>
-                        <p>Εικόνα παραδείγματος<br>(θα μπει screenshot εδώ)</p>
+                    <div class="gmb-screenshot-wrapper" onclick="openGmbModal()">
+                        <img src="https://images.pexels.com/photos/699459/pexels-photo-699459.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Google Business Profile Example" class="gmb-screenshot">
+                        <p class="screenshot-caption">Δείτε παράδειγμα (click)</p>
                     </div>
                 </div>
                 <div class="feature-detail-text">
                     <h2>Google Business Profile (η παρουσία σας στο Google)</h2>
                     <p class="feature-subtitle">Εκεί που σας βρίσκουν πριν καν μπουν Airbnb.</p>
                     <div class="feature-description">
-                        <p>Όταν κάποιος ψάχνει 'διαμονή + περιοχή', αυτό που βλέπει πρώτο είναι το προφίλ σας στο Google.</p>
-                        <p>Με σωστή ρύθμιση, δείχνετε επαγγελματικοί και σας παίρνουν τηλέφωνο ή μπαίνουν στο site με 1 κλικ.</p>
-                        <p>Και το πιο βασικό: εκεί 'κάθονται' οι κριτικές σας.</p>
+                        <p>Όταν κάποιος ψάχνει 'διαμονή + περιοχή', αυτό βλέπει πρώτο. Με σωστή ρύθμιση δείχνετε επαγγελματικοί και παίρνετε κλήσεις/μηνύματα με 1 κλικ. Και το πιο σημαντικό: εκεί φαίνονται οι κριτικές σας.</p>
                     </div>
                     <ul class="feature-list">
-                        <li><i class="fas fa-check-circle"></i> <span>Δημιουργία ή διόρθωση προφίλ (όνομα, κατηγορία, στοιχεία)</span></li>
-                        <li><i class="fas fa-check-circle"></i> <span>Σύνδεση με site + τηλέφωνο + WhatsApp</span></li>
-                        <li><i class="fas fa-check-circle"></i> <span>Χάρτης/τοποθεσία σωστά καρφιτσωμένη</span></li>
-                        <li><i class="fas fa-check-circle"></i> <span>Φωτογραφίες και βασική περιγραφή (GR/EN)</span></li>
-                        <li><i class="fas fa-check-circle"></i> <span>Σύνδεση με link κριτικής + οδηγίες για το πώς ζητάμε review</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span>Δημιουργία ή διόρθωση προφίλ (στοιχεία, κατηγορία)</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span>Σύνδεση site + τηλέφωνο + WhatsApp</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span>Σωστό pin τοποθεσίας στον χάρτη</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span>Φωτογραφίες + βασική περιγραφή (GR/EN)</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span>Link κριτικής + οδηγίες "πώς ζητάμε review"</span></li>
                     </ul>
                     <div class="feature-highlight">
                         <i class="fas fa-lightbulb"></i>
-                        <p>Το Google προφίλ είναι η βιτρίνα σας στη Google. Αν είναι λάθος ή μισό, χάνετε κλήσεις και εμπιστοσύνη.</p>
+                        <p>Το Google προφίλ είναι η βιτρίνα σας. Αν είναι λάθος ή μισό, χάνετε κλήσεις και εμπιστοσύνη.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- GMB Modal -->
+    <div id="gmbModal" class="modal" onclick="closeGmbModal(event)">
+        <span class="modal-close" onclick="closeGmbModal(event)">&times;</span>
+        <img class="modal-content" id="gmbModalImg" src="https://images.pexels.com/photos/699459/pexels-photo-699459.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Google Business Profile Example">
+    </div>
 
     <!-- Review QR Section -->
     <section class="feature-detail feature-detail-reverse" id="review-qr">
