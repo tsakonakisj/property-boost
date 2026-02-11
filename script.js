@@ -350,95 +350,82 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// GMB Modal Functions
-function openGmbModal() {
-    const modal = document.getElementById('gmbModal');
-    if (modal) {
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    }
-}
-
-function closeGmbModal() {
-    const modal = document.getElementById('gmbModal');
-    if (modal) {
-        modal.classList.remove('active');
-        document.body.style.overflow = 'auto';
-    }
-}
-
-// Review QR Modal Functions
-function openReviewQrModal() {
-    const modal = document.getElementById('reviewQrModal');
-    if (modal) {
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    }
-}
-
-function closeReviewQrModal() {
-    const modal = document.getElementById('reviewQrModal');
-    if (modal) {
-        modal.classList.remove('active');
-        document.body.style.overflow = 'auto';
-    }
-}
-
-// Close modals on ESC key
-document.addEventListener('keydown', function(event) {
-    if (event.key === 'Escape') {
-        const gmbModal = document.getElementById('gmbModal');
-        const reviewQrModal = document.getElementById('reviewQrModal');
-
-        if (gmbModal && gmbModal.classList.contains('active')) {
-            gmbModal.classList.remove('active');
-            document.body.style.overflow = 'auto';
+// Modal System
+(function() {
+    function openModal(modalId) {
+        const modal = document.getElementById(modalId);
+        if (modal) {
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
         }
+    }
 
-        if (reviewQrModal && reviewQrModal.classList.contains('active')) {
-            reviewQrModal.classList.remove('active');
+    function closeModal(modalId) {
+        const modal = document.getElementById(modalId);
+        if (modal) {
+            modal.classList.remove('active');
             document.body.style.overflow = 'auto';
         }
     }
-});
 
-// Modal triggers
-document.addEventListener('DOMContentLoaded', function() {
-    const modalTriggers = document.querySelectorAll('[data-modal]');
+    function setupModalSystem() {
+        // Setup triggers with both click and touchend
+        const modalTriggers = document.querySelectorAll('[data-modal]');
 
-    modalTriggers.forEach(trigger => {
-        const modalType = trigger.getAttribute('data-modal');
+        modalTriggers.forEach(trigger => {
+            const modalType = trigger.getAttribute('data-modal');
+            const modalId = modalType === 'gmb' ? 'gmbModal' : 'reviewQrModal';
 
-        trigger.addEventListener('click', function(e) {
-            e.preventDefault();
-            if (modalType === 'gmb') {
-                openGmbModal();
-            } else if (modalType === 'reviewqr') {
-                openReviewQrModal();
-            }
+            // Handle both click and touch events
+            const openModalHandler = function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                openModal(modalId);
+            };
+
+            trigger.addEventListener('click', openModalHandler);
+            trigger.addEventListener('touchend', openModalHandler);
         });
-    });
 
-    // Close modal handlers
-    const gmbModal = document.getElementById('gmbModal');
-    const reviewQrModal = document.getElementById('reviewQrModal');
+        // Setup close handlers
+        const modals = ['gmbModal', 'reviewQrModal'];
 
-    if (gmbModal) {
-        gmbModal.addEventListener('click', function(e) {
-            if (e.target === gmbModal || e.target.classList.contains('modal-close')) {
-                closeGmbModal();
+        modals.forEach(modalId => {
+            const modal = document.getElementById(modalId);
+            if (!modal) return;
+
+            const closeHandler = function(e) {
+                if (e.target === modal || e.target.classList.contains('modal-close')) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    closeModal(modalId);
+                }
+            };
+
+            modal.addEventListener('click', closeHandler);
+            modal.addEventListener('touchend', closeHandler);
+        });
+
+        // ESC key to close
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                modals.forEach(modalId => {
+                    const modal = document.getElementById(modalId);
+                    if (modal && modal.classList.contains('active')) {
+                        closeModal(modalId);
+                    }
+                });
             }
         });
     }
 
-    if (reviewQrModal) {
-        reviewQrModal.addEventListener('click', function(e) {
-            if (e.target === reviewQrModal || e.target.classList.contains('modal-close')) {
-                closeReviewQrModal();
-            }
-        });
+    // Initialize when DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', setupModalSystem);
+    } else {
+        setupModalSystem();
     }
-});
+})();
 
 // Console welcome message
 console.log('%cPropertyBoost Landing Page', 'color: #2563eb; font-size: 20px; font-weight: bold;');
