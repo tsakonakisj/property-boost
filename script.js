@@ -363,7 +363,10 @@ function closeGmbModal(event) {
     const modal = document.getElementById('gmbModal');
 
     if (modal && (event.target === modal || event.target.classList.contains('modal-close'))) {
-        event.stopPropagation();
+        if (event) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
         modal.classList.remove('active');
         document.body.style.overflow = 'auto';
     }
@@ -382,7 +385,10 @@ function closeReviewQrModal(event) {
     const modal = document.getElementById('reviewQrModal');
 
     if (modal && (event.target === modal || event.target.classList.contains('modal-close'))) {
-        event.stopPropagation();
+        if (event) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
         modal.classList.remove('active');
         document.body.style.overflow = 'auto';
     }
@@ -403,6 +409,89 @@ document.addEventListener('keydown', function(event) {
             reviewQrModal.classList.remove('active');
             document.body.style.overflow = 'auto';
         }
+    }
+});
+
+// Mobile-friendly modal triggers
+document.addEventListener('DOMContentLoaded', function() {
+    // GMB Modal triggers
+    const gmbThumbnail = document.querySelector('.showcase-card .showcase-thumbnail[onclick*="openGmbModal"]');
+    const gmbButton = document.querySelector('.showcase-btn-modal[onclick*="openGmbModal"]');
+
+    if (gmbThumbnail) {
+        gmbThumbnail.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            openGmbModal();
+        });
+        gmbThumbnail.addEventListener('touchend', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            openGmbModal();
+        });
+    }
+
+    if (gmbButton) {
+        gmbButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            openGmbModal();
+        });
+        gmbButton.addEventListener('touchend', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            openGmbModal();
+        });
+    }
+
+    // Review QR Modal triggers
+    const reviewQrThumbnail = document.querySelector('.showcase-card .showcase-thumbnail[onclick*="openReviewQrModal"]');
+    const reviewQrButton = document.querySelector('.showcase-btn-modal[onclick*="openReviewQrModal"]');
+
+    if (reviewQrThumbnail) {
+        reviewQrThumbnail.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            openReviewQrModal();
+        });
+        reviewQrThumbnail.addEventListener('touchend', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            openReviewQrModal();
+        });
+    }
+
+    if (reviewQrButton) {
+        reviewQrButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            openReviewQrModal();
+        });
+        reviewQrButton.addEventListener('touchend', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            openReviewQrModal();
+        });
+    }
+
+    // Modal close handlers for touch
+    const gmbModal = document.getElementById('gmbModal');
+    const reviewQrModal = document.getElementById('reviewQrModal');
+
+    if (gmbModal) {
+        gmbModal.addEventListener('touchend', function(e) {
+            if (e.target === gmbModal || e.target.classList.contains('modal-close')) {
+                closeGmbModal(e);
+            }
+        });
+    }
+
+    if (reviewQrModal) {
+        reviewQrModal.addEventListener('touchend', function(e) {
+            if (e.target === reviewQrModal || e.target.classList.contains('modal-close')) {
+                closeReviewQrModal(e);
+            }
+        });
     }
 });
 
