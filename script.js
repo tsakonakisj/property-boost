@@ -350,24 +350,14 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Modal System - Mobile Optimized
+// Modal System
 (function() {
-    let modalOpenInProgress = false;
-
     function openModal(modalId) {
-        if (modalOpenInProgress) return;
-        modalOpenInProgress = true;
-
         const modal = document.getElementById(modalId);
         if (modal) {
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
-            console.log('Modal opened:', modalId);
         }
-
-        setTimeout(() => {
-            modalOpenInProgress = false;
-        }, 300);
     }
 
     function closeModal(modalId) {
@@ -375,45 +365,32 @@ document.addEventListener('DOMContentLoaded', function() {
         if (modal) {
             modal.classList.remove('active');
             document.body.style.overflow = 'auto';
-            console.log('Modal closed:', modalId);
         }
     }
 
     function setupModalSystem() {
         const modalTriggers = document.querySelectorAll('[data-modal]');
-        console.log('Found modal triggers:', modalTriggers.length);
 
-        modalTriggers.forEach((trigger, index) => {
+        modalTriggers.forEach(trigger => {
             const modalType = trigger.getAttribute('data-modal');
             const modalId = modalType === 'gmb' ? 'gmbModal' : 'reviewQrModal';
 
-            console.log(`Setting up trigger ${index + 1}:`, modalType);
-
-            let touchStartTime = 0;
-            let hasMoved = false;
+            let touchHandled = false;
 
             trigger.addEventListener('touchstart', function(e) {
-                touchStartTime = Date.now();
-                hasMoved = false;
-            }, { passive: true });
-
-            trigger.addEventListener('touchmove', function(e) {
-                hasMoved = true;
+                touchHandled = false;
             }, { passive: true });
 
             trigger.addEventListener('touchend', function(e) {
-                const touchDuration = Date.now() - touchStartTime;
-                if (!hasMoved && touchDuration < 500) {
-                    e.preventDefault();
-                    console.log('Touch triggered for:', modalId);
-                    openModal(modalId);
-                }
-            }, { passive: false });
+                e.preventDefault();
+                touchHandled = true;
+                openModal(modalId);
+                setTimeout(() => { touchHandled = false; }, 500);
+            });
 
             trigger.addEventListener('click', function(e) {
-                if (touchStartTime === 0 || Date.now() - touchStartTime > 500) {
+                if (!touchHandled) {
                     e.preventDefault();
-                    console.log('Click triggered for:', modalId);
                     openModal(modalId);
                 }
             });
@@ -423,26 +400,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
         modals.forEach(modalId => {
             const modal = document.getElementById(modalId);
-            if (!modal) {
-                console.warn('Modal not found:', modalId);
-                return;
-            }
+            if (!modal) return;
 
-            console.log('Setting up modal:', modalId);
-
-            modal.addEventListener('click', function(e) {
+            const closeHandler = function(e) {
                 if (e.target === modal || e.target.classList.contains('modal-close')) {
                     e.preventDefault();
                     closeModal(modalId);
                 }
-            });
+            };
 
-            modal.addEventListener('touchend', function(e) {
-                if (e.target === modal || e.target.classList.contains('modal-close')) {
-                    e.preventDefault();
-                    closeModal(modalId);
-                }
-            }, { passive: false });
+            modal.addEventListener('click', closeHandler);
+            modal.addEventListener('touchend', closeHandler);
         });
 
         document.addEventListener('keydown', function(e) {
@@ -455,8 +423,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             }
         });
-
-        console.log('Modal system setup complete');
     }
 
     if (document.readyState === 'loading') {
