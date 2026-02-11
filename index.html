@@ -119,6 +119,7 @@
                         <i class="fas fa-globe"></i>
                     </div>
                     <h3>1. Πρότυπο site παρουσίασης</h3>
+                    <p class="showcase-description">Έτοιμη σελίδα με στοιχεία και επικοινωνία</p>
                     <a href="https://stenihousetinos.gr/" target="_blank" class="showcase-btn">
                         Δείτε το site <i class="fas fa-external-link-alt"></i>
                     </a>
@@ -130,52 +131,40 @@
                         <i class="fas fa-qrcode"></i>
                     </div>
                     <h3>2. Πρότυπο Ψηφιακού Οδηγού (QR)</h3>
+                    <p class="showcase-description">Wi-Fi, οδηγίες, links σε 1 σελίδα (GR/EN)</p>
                     <a href="https://guestbook.stenihousetinos.gr/" target="_blank" class="showcase-btn">
                         Δείτε τον οδηγό <i class="fas fa-external-link-alt"></i>
                     </a>
                 </div>
 
-                <div class="showcase-card showcase-card-detailed">
+                <div class="showcase-card">
                     <div class="card-badge">3</div>
-                    <div class="showcase-card-inner">
-                        <div class="showcase-card-image">
-                            <div class="gmb-screenshot-wrapper" onclick="openGmbModal()">
-                                <img src="images/Στιγμιότυπο_οθόνης_2026-02-05_184155.gif" alt="Google Business Profile Example" class="gmb-screenshot">
-                                <p class="screenshot-caption">Δείτε παράδειγμα (click)</p>
-                            </div>
-                        </div>
-                        <div class="showcase-card-content">
-                            <h3>3. Google Business Profile</h3>
-                            <p class="card-subtitle">Εκεί που σας βρίσκουν πριν καν μπουν Airbnb.</p>
-                            <p class="card-description">Όταν κάποιος ψάχνει 'διαμονή + περιοχή', αυτό βλέπει πρώτο. Με σωστή ρύθμιση δείχνετε επαγγελματικοί και παίρνετε κλήσεις/μηνύματα με 1 κλικ.</p>
-                            <ul class="card-features-list">
-                                <li><i class="fas fa-check-circle"></i> <span>Δημιουργία ή διόρθωση προφίλ</span></li>
-                                <li><i class="fas fa-check-circle"></i> <span>Σύνδεση site + τηλέφωνο + WhatsApp</span></li>
-                                <li><i class="fas fa-check-circle"></i> <span>Σωστό pin τοποθεσίας στον χάρτη</span></li>
-                                <li><i class="fas fa-check-circle"></i> <span>Φωτογραφίες + περιγραφή (GR/EN)</span></li>
-                                <li><i class="fas fa-check-circle"></i> <span>Link κριτικής + οδηγίες</span></li>
-                            </ul>
-                        </div>
+                    <div class="showcase-icon">
+                        <i class="fas fa-map-marker-alt"></i>
                     </div>
+                    <h3>3. Google Business Profile</h3>
+                    <p class="showcase-description">Να σας βρίσκουν πριν μπουν Airbnb</p>
+                    <div class="showcase-thumbnail" onclick="openGmbModal()">
+                        <img src="images/Στιγμιότυπο_οθόνης_2026-02-05_184155.gif" alt="Google Business Profile Preview">
+                    </div>
+                    <button class="showcase-btn showcase-btn-modal" onclick="openGmbModal()">
+                        Δείτε παράδειγμα <i class="fas fa-eye"></i>
+                    </button>
                 </div>
 
-                <div class="showcase-card showcase-card-detailed">
+                <div class="showcase-card">
                     <div class="card-badge">4</div>
-                    <div class="showcase-card-inner">
-                        <div class="showcase-card-image">
-                            <img src="images/Ανώνυμο_σχέδιο_(1).png" alt="Review QR Example" class="review-qr-screenshot">
-                        </div>
-                        <div class="showcase-card-content">
-                            <h3>4. Review QR (κριτικές σε 20'')</h3>
-                            <p class="card-subtitle">Ο επισκέπτης σκανάρει και γράφει κριτική σε 20".</p>
-                            <p class="card-description">Στον ψηφιακό οδηγό υπάρχει πάντα κουμπί 'Αφήστε κριτική'. Δίνουμε και QR για κάρτα/έντυπο μέσα στο κατάλυμα.</p>
-                            <ul class="card-features-list">
-                                <li><i class="fas fa-check-circle"></i> <span>QR που ανοίγει απευθείας τη φόρμα αξιολόγησης Google</span></li>
-                                <li><i class="fas fa-check-circle"></i> <span>Μικρό έτοιμο κείμενο GR/EN για να το ζητάτε ευγενικά</span></li>
-                                <li><i class="fas fa-check-circle"></i> <span>Τοποθέτηση μέσα στον οδηγό + (προαιρετικά) κάρτα</span></li>
-                            </ul>
-                        </div>
+                    <div class="showcase-icon">
+                        <i class="fas fa-star"></i>
                     </div>
+                    <h3>4. Review QR (κριτικές σε 20'')</h3>
+                    <p class="showcase-description">Ο επισκέπτης σκανάρει και γράφει κριτική</p>
+                    <div class="showcase-thumbnail" onclick="openReviewQrModal()">
+                        <img src="images/Ανώνυμο_σχέδιο_(1).png" alt="Review QR Preview">
+                    </div>
+                    <button class="showcase-btn showcase-btn-modal" onclick="openReviewQrModal()">
+                        Δείτε παράδειγμα <i class="fas fa-eye"></i>
+                    </button>
                 </div>
             </div>
             <p class="showcase-note">*Τα πρότυπα είναι έτοιμες δομές που προσαρμόζονται με τα στοιχεία του καταλύματός σας.</p>
@@ -185,7 +174,39 @@
     <!-- GMB Modal -->
     <div id="gmbModal" class="modal" onclick="closeGmbModal(event)">
         <span class="modal-close" onclick="closeGmbModal(event)">&times;</span>
-        <img class="modal-content" id="gmbModalImg" src="images/Στιγμιότυπο_οθόνης_2026-02-05_184155.gif" alt="Google Business Profile Example">
+        <div class="modal-content-wrapper">
+            <img class="modal-content-image" src="images/Στιγμιότυπο_οθόνης_2026-02-05_184155.gif" alt="Google Business Profile Example">
+            <div class="modal-content-text">
+                <h3>Google Business Profile (παρουσία στο Google)</h3>
+                <p>Εκεί που σας βρίσκουν πριν καν μπουν Airbnb.</p>
+                <ul class="modal-features-list">
+                    <li><i class="fas fa-check-circle"></i> <span>Δημιουργία ή διόρθωση προφίλ (στοιχεία, κατηγορία)</span></li>
+                    <li><i class="fas fa-check-circle"></i> <span>Σύνδεση site + τηλέφωνο + WhatsApp</span></li>
+                    <li><i class="fas fa-check-circle"></i> <span>Σωστό pin τοποθεσίας στον χάρτη</span></li>
+                    <li><i class="fas fa-check-circle"></i> <span>Φωτογραφίες + βασική περιγραφή (GR/EN)</span></li>
+                    <li><i class="fas fa-check-circle"></i> <span>Link κριτικής + οδηγίες "πώς ζητάμε review"</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Review QR Modal -->
+    <div id="reviewQrModal" class="modal" onclick="closeReviewQrModal(event)">
+        <span class="modal-close" onclick="closeReviewQrModal(event)">&times;</span>
+        <div class="modal-content-wrapper">
+            <img class="modal-content-image" src="images/Ανώνυμο_σχέδιο_(1).png" alt="Review QR Example">
+            <div class="modal-content-text">
+                <h3>Review QR (κριτικές σε 20'')</h3>
+                <p>Ο επισκέπτης σκανάρει και γράφει κριτική σε 20".</p>
+                <ul class="modal-features-list">
+                    <li><i class="fas fa-check-circle"></i> <span>QR που ανοίγει απευθείας τη φόρμα αξιολόγησης Google</span></li>
+                    <li><i class="fas fa-check-circle"></i> <span>Μικρό έτοιμο κείμενο GR/EN για να το ζητάτε ευγενικά</span></li>
+                    <li><i class="fas fa-check-circle"></i> <span>Τοποθέτηση μέσα στον οδηγό + (προαιρετικά) κάρτα</span></li>
+                    <li><i class="fas fa-check-circle"></i> <span>Στον ψηφιακό οδηγό υπάρχει πάντα κουμπί 'Αφήστε κριτική'</span></li>
+                    <li><i class="fas fa-check-circle"></i> <span>Δίνουμε και QR για κάρτα/έντυπο μέσα στο κατάλυμα</span></li>
+                </ul>
+            </div>
+        </div>
     </div>
 
     <!-- Packages Section -->

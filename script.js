@@ -361,7 +361,6 @@ function openGmbModal() {
 
 function closeGmbModal(event) {
     const modal = document.getElementById('gmbModal');
-    const modalImg = document.getElementById('gmbModalImg');
 
     if (modal && (event.target === modal || event.target.classList.contains('modal-close'))) {
         event.stopPropagation();
@@ -370,12 +369,38 @@ function closeGmbModal(event) {
     }
 }
 
-// Close modal on ESC key
+// Review QR Modal Functions
+function openReviewQrModal() {
+    const modal = document.getElementById('reviewQrModal');
+    if (modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closeReviewQrModal(event) {
+    const modal = document.getElementById('reviewQrModal');
+
+    if (modal && (event.target === modal || event.target.classList.contains('modal-close'))) {
+        event.stopPropagation();
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+}
+
+// Close modals on ESC key
 document.addEventListener('keydown', function(event) {
     if (event.key === 'Escape') {
-        const modal = document.getElementById('gmbModal');
-        if (modal && modal.classList.contains('active')) {
-            modal.classList.remove('active');
+        const gmbModal = document.getElementById('gmbModal');
+        const reviewQrModal = document.getElementById('reviewQrModal');
+
+        if (gmbModal && gmbModal.classList.contains('active')) {
+            gmbModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        if (reviewQrModal && reviewQrModal.classList.contains('active')) {
+            reviewQrModal.classList.remove('active');
             document.body.style.overflow = 'auto';
         }
     }
