@@ -246,6 +246,14 @@ p {
     background: var(--light-gray);
 }
 
+.problems-solutions .section-subtitle {
+    text-align: center;
+    font-size: 1rem;
+    color: #64748b;
+    margin: 0.75rem auto 2.5rem;
+    max-width: 600px;
+}
+
 .solutions-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
