@@ -350,14 +350,24 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Modal System
+// Modal System - Mobile Optimized
 (function() {
+    let modalOpenInProgress = false;
+
     function openModal(modalId) {
+        if (modalOpenInProgress) return;
+        modalOpenInProgress = true;
+
         const modal = document.getElementById(modalId);
         if (modal) {
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
+            console.log('Modal opened:', modalId);
         }
+
+        setTimeout(() => {
+            modalOpenInProgress = false;
+        }, 300);
     }
 
     function closeModal(modalId) {
@@ -365,48 +375,76 @@ document.addEventListener('DOMContentLoaded', function() {
         if (modal) {
             modal.classList.remove('active');
             document.body.style.overflow = 'auto';
+            console.log('Modal closed:', modalId);
         }
     }
 
     function setupModalSystem() {
-        // Setup triggers with both click and touchend
         const modalTriggers = document.querySelectorAll('[data-modal]');
+        console.log('Found modal triggers:', modalTriggers.length);
 
-        modalTriggers.forEach(trigger => {
+        modalTriggers.forEach((trigger, index) => {
             const modalType = trigger.getAttribute('data-modal');
             const modalId = modalType === 'gmb' ? 'gmbModal' : 'reviewQrModal';
 
-            // Handle both click and touch events
-            const openModalHandler = function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                openModal(modalId);
-            };
+            console.log(`Setting up trigger ${index + 1}:`, modalType);
 
-            trigger.addEventListener('click', openModalHandler);
-            trigger.addEventListener('touchend', openModalHandler);
+            let touchStartTime = 0;
+            let hasMoved = false;
+
+            trigger.addEventListener('touchstart', function(e) {
+                touchStartTime = Date.now();
+                hasMoved = false;
+            }, { passive: true });
+
+            trigger.addEventListener('touchmove', function(e) {
+                hasMoved = true;
+            }, { passive: true });
+
+            trigger.addEventListener('touchend', function(e) {
+                const touchDuration = Date.now() - touchStartTime;
+                if (!hasMoved && touchDuration < 500) {
+                    e.preventDefault();
+                    console.log('Touch triggered for:', modalId);
+                    openModal(modalId);
+                }
+            }, { passive: false });
+
+            trigger.addEventListener('click', function(e) {
+                if (touchStartTime === 0 || Date.now() - touchStartTime > 500) {
+                    e.preventDefault();
+                    console.log('Click triggered for:', modalId);
+                    openModal(modalId);
+                }
+            });
         });
 
-        // Setup close handlers
         const modals = ['gmbModal', 'reviewQrModal'];
 
         modals.forEach(modalId => {
             const modal = document.getElementById(modalId);
-            if (!modal) return;
+            if (!modal) {
+                console.warn('Modal not found:', modalId);
+                return;
+            }
 
-            const closeHandler = function(e) {
+            console.log('Setting up modal:', modalId);
+
+            modal.addEventListener('click', function(e) {
                 if (e.target === modal || e.target.classList.contains('modal-close')) {
                     e.preventDefault();
-                    e.stopPropagation();
                     closeModal(modalId);
                 }
-            };
+            });
 
-            modal.addEventListener('click', closeHandler);
-            modal.addEventListener('touchend', closeHandler);
+            modal.addEventListener('touchend', function(e) {
+                if (e.target === modal || e.target.classList.contains('modal-close')) {
+                    e.preventDefault();
+                    closeModal(modalId);
+                }
+            }, { passive: false });
         });
 
-        // ESC key to close
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 modals.forEach(modalId => {
@@ -417,9 +455,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             }
         });
+
+        console.log('Modal system setup complete');
     }
 
-    // Initialize when DOM is ready
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', setupModalSystem);
     } else {
