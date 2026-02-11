@@ -201,7 +201,6 @@ p {
     font-weight: 700;
     line-height: 1.15;
     margin-bottom: 1rem;
-    color: var(--primary-blue);
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 }
 
@@ -738,7 +737,7 @@ p {
 }
 
 .premium-header {
-    background: var(--gradient-secondary);
+    background: var(--gradient-primary);
     color: var(--white);
 }
 
