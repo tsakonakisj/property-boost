@@ -1353,6 +1353,21 @@ p {
     color: var(--white);
 }
 
+.footer-contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.footer-contact-link i {
+    color: var(--primary-blue);
+    transition: transform 0.3s ease;
+}
+
+.footer-contact-link:hover i {
+    transform: scale(1.1);
+}
+
 .footer-cta-btn {
     display: inline-flex;
     align-items: center;
