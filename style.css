@@ -248,41 +248,102 @@ p {
 
 .solutions-grid {
     display: grid;
-    gap: 2rem;
-    max-width: 1000px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    max-width: 1100px;
     margin: 0 auto;
 }
 
-.solution-item {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    align-items: center;
-    gap: 1rem;
-    padding: 1.5rem;
+.solution-card {
     background: var(--white);
-    border-radius: 1rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-}
-
-.problem, .solution {
+    border-radius: 18px;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
-    align-items: center;
+    flex-direction: column;
     gap: 0.75rem;
 }
 
-.problem-icon {
-    color: var(--primary-red);
-    font-size: 1.5rem;
+.solution-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 
-.solution-icon {
-    color: var(--primary-green);
-    font-size: 1.5rem;
+.card-badge-problem {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 0.85rem;
+    background: #fee2e2;
+    color: #dc2626;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    width: fit-content;
 }
 
-.arrow {
-    color: var(--primary-blue);
-    font-size: 1.25rem;
+.card-badge-problem i {
+    font-size: 0.75rem;
+}
+
+.card-problem-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0.25rem 0 0 0;
+    line-height: 1.4;
+}
+
+.card-problem-desc {
+    font-size: 0.9rem;
+    color: #64748b;
+    margin: 0 0 1rem 0;
+    line-height: 1.5;
+}
+
+.card-badge-solution {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 0.85rem;
+    background: #dcfce7;
+    color: #16a34a;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    width: fit-content;
+    margin-top: 0.5rem;
+}
+
+.card-badge-solution i {
+    font-size: 0.75rem;
+}
+
+.card-solution-desc {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #0f172a;
+    margin: 0.25rem 0 0.5rem 0;
+    line-height: 1.5;
+}
+
+.card-benefit {
+    font-size: 0.85rem;
+    color: #94a3b8;
+    margin: 0;
+    line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+    .solutions-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .solution-card {
+        padding: 1.5rem;
+    }
 }
 
 /* Showcase Section */
