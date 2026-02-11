@@ -144,10 +144,10 @@
                     </div>
                     <h3>3. Google Business Profile</h3>
                     <p class="showcase-description">Να σας βρίσκουν πριν μπουν Airbnb</p>
-                    <div class="showcase-thumbnail" onclick="openGmbModal()">
+                    <div class="showcase-thumbnail" data-modal="gmb">
                         <img src="images/Στιγμιότυπο_οθόνης_2026-02-05_184155.gif" alt="Google Business Profile Preview">
                     </div>
-                    <button class="showcase-btn showcase-btn-modal" onclick="openGmbModal()">
+                    <button class="showcase-btn showcase-btn-modal" data-modal="gmb">
                         Δείτε παράδειγμα <i class="fas fa-eye"></i>
                     </button>
                 </div>
@@ -159,10 +159,10 @@
                     </div>
                     <h3>4. Review QR (κριτικές σε 20'')</h3>
                     <p class="showcase-description">Ο επισκέπτης σκανάρει και γράφει κριτική</p>
-                    <div class="showcase-thumbnail" onclick="openReviewQrModal()">
+                    <div class="showcase-thumbnail" data-modal="reviewqr">
                         <img src="images/Ανώνυμο_σχέδιο_(1).png" alt="Review QR Preview">
                     </div>
-                    <button class="showcase-btn showcase-btn-modal" onclick="openReviewQrModal()">
+                    <button class="showcase-btn showcase-btn-modal" data-modal="reviewqr">
                         Δείτε παράδειγμα <i class="fas fa-eye"></i>
                     </button>
                 </div>
@@ -172,8 +172,8 @@
     </section>
 
     <!-- GMB Modal -->
-    <div id="gmbModal" class="modal" onclick="closeGmbModal(event)">
-        <span class="modal-close" onclick="closeGmbModal(event)">&times;</span>
+    <div id="gmbModal" class="modal">
+        <span class="modal-close">&times;</span>
         <div class="modal-content-wrapper">
             <img class="modal-content-image" src="images/Στιγμιότυπο_οθόνης_2026-02-05_184155.gif" alt="Google Business Profile Example">
             <div class="modal-content-text">
@@ -191,8 +191,8 @@
     </div>
 
     <!-- Review QR Modal -->
-    <div id="reviewQrModal" class="modal" onclick="closeReviewQrModal(event)">
-        <span class="modal-close" onclick="closeReviewQrModal(event)">&times;</span>
+    <div id="reviewQrModal" class="modal">
+        <span class="modal-close">&times;</span>
         <div class="modal-content-wrapper">
             <img class="modal-content-image" src="images/Ανώνυμο_σχέδιο_(1).png" alt="Review QR Example">
             <div class="modal-content-text">

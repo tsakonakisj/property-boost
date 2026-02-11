@@ -359,14 +359,9 @@ function openGmbModal() {
     }
 }
 
-function closeGmbModal(event) {
+function closeGmbModal() {
     const modal = document.getElementById('gmbModal');
-
-    if (modal && (event.target === modal || event.target.classList.contains('modal-close'))) {
-        if (event) {
-            event.preventDefault();
-            event.stopPropagation();
-        }
+    if (modal) {
         modal.classList.remove('active');
         document.body.style.overflow = 'auto';
     }
@@ -381,14 +376,9 @@ function openReviewQrModal() {
     }
 }
 
-function closeReviewQrModal(event) {
+function closeReviewQrModal() {
     const modal = document.getElementById('reviewQrModal');
-
-    if (modal && (event.target === modal || event.target.classList.contains('modal-close'))) {
-        if (event) {
-            event.preventDefault();
-            event.stopPropagation();
-        }
+    if (modal) {
         modal.classList.remove('active');
         document.body.style.overflow = 'auto';
     }
@@ -412,84 +402,39 @@ document.addEventListener('keydown', function(event) {
     }
 });
 
-// Mobile-friendly modal triggers
+// Modal triggers
 document.addEventListener('DOMContentLoaded', function() {
-    // GMB Modal triggers
-    const gmbThumbnail = document.querySelector('.showcase-card .showcase-thumbnail[onclick*="openGmbModal"]');
-    const gmbButton = document.querySelector('.showcase-btn-modal[onclick*="openGmbModal"]');
+    const modalTriggers = document.querySelectorAll('[data-modal]');
 
-    if (gmbThumbnail) {
-        gmbThumbnail.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            openGmbModal();
-        });
-        gmbThumbnail.addEventListener('touchend', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            openGmbModal();
-        });
-    }
+    modalTriggers.forEach(trigger => {
+        const modalType = trigger.getAttribute('data-modal');
 
-    if (gmbButton) {
-        gmbButton.addEventListener('click', function(e) {
+        trigger.addEventListener('click', function(e) {
             e.preventDefault();
-            e.stopPropagation();
-            openGmbModal();
+            if (modalType === 'gmb') {
+                openGmbModal();
+            } else if (modalType === 'reviewqr') {
+                openReviewQrModal();
+            }
         });
-        gmbButton.addEventListener('touchend', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            openGmbModal();
-        });
-    }
+    });
 
-    // Review QR Modal triggers
-    const reviewQrThumbnail = document.querySelector('.showcase-card .showcase-thumbnail[onclick*="openReviewQrModal"]');
-    const reviewQrButton = document.querySelector('.showcase-btn-modal[onclick*="openReviewQrModal"]');
-
-    if (reviewQrThumbnail) {
-        reviewQrThumbnail.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            openReviewQrModal();
-        });
-        reviewQrThumbnail.addEventListener('touchend', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            openReviewQrModal();
-        });
-    }
-
-    if (reviewQrButton) {
-        reviewQrButton.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            openReviewQrModal();
-        });
-        reviewQrButton.addEventListener('touchend', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            openReviewQrModal();
-        });
-    }
-
-    // Modal close handlers for touch
+    // Close modal handlers
     const gmbModal = document.getElementById('gmbModal');
     const reviewQrModal = document.getElementById('reviewQrModal');
 
     if (gmbModal) {
-        gmbModal.addEventListener('touchend', function(e) {
+        gmbModal.addEventListener('click', function(e) {
             if (e.target === gmbModal || e.target.classList.contains('modal-close')) {
-                closeGmbModal(e);
+                closeGmbModal();
             }
         });
     }
 
     if (reviewQrModal) {
-        reviewQrModal.addEventListener('touchend', function(e) {
+        reviewQrModal.addEventListener('click', function(e) {
             if (e.target === reviewQrModal || e.target.classList.contains('modal-close')) {
-                closeReviewQrModal(e);
+                closeReviewQrModal();
             }
         });
     }
